@@ -1,34 +1,55 @@
 <div class="container">
-    <h2>User Data</h2>
-    <form #UserForm="ngForm" (ngSubmit)="onSubmit(UserForm.value)">
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text" class="form-control" name="name" ngModel>
+  <h2>User Data</h2>
+  <form #UserForm="ngForm" (ngSubmit)="onSubmit(UserForm.value)">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" name="name" ngModel>
+    </div>
+    <div class="form-group">
+      <label>Gender</label>
+      <div class="radio">
+        <label>
+          <input type="radio" name="gender" value="male" ngModel> male
+        </label>
+        <label>
+          <input type="radio" name="gender" value="female" ngModel> female
+        </label>
       </div>
-      <div class="form-group">
-          <label>Gender</label>
-          <input type="text" class="form-control" name="Gender" ngModel>
-        </div>
-        <div class="form-group">
-            <label>Age</label>
-            <input type="text" class="form-control" name="Age" ngModel>
-          </div>
-          <div class="form-group">
-              <label>DOB</label>
-              <input type="text" class="form-control" name="DOB" ngModel>
-            </div>
-            <div class="form-group">
-                <label>Class</label>
-                <input type="text" class="form-control" name="Class" ngModel>
-              </div>
-              <div class="form-group">
-                  <label>City</label>
-                  <input type="text" class="form-control" name="City" ngModel>
-                </div>
-          <button type="submit" class="btn btn-primary">SUBMIT</button>
-    </form>
-    <a [routerLink]="['/Login']" >
-      link to login component
-    </a>
-  </div>
-  
+    </div>
+    <div class="form-group">
+      <label>Age</label>
+      <input type="text" class="form-control" name="Age" ngModel>
+    </div>
+    <div class="form-group">
+      <label>DOB</label>
+      <input type="text" class="form-control" name="DOB" ngModel>
+    </div>
+    <div class="form-group">
+      <label>Class</label>
+      <input type="text" class="form-control" name="Class" ngModel>
+    </div>
+    <div class="form-group">
+      <label>City</label>
+      <input type="text" class="form-control" name="City" ngModel>
+    </div>
+    <div class="form-group" ngModelGroup="address">
+      <label>Address</label>
+      <div>
+        <label>Zip:</label>
+        <input type="text" name="zip" ngModel>
+      </div>
+      <div>
+        <label>Street:</label>
+        <input type="text" name="street" ngModel>
+      </div>
+      <div>
+        <label>City:</label>
+        <input type="text" name="city" ngModel>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">SUBMIT</button>
+  </form>
+  <a [routerLink]="['/Login']">
+    link to login component
+  </a>
+</div>

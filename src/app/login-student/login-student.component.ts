@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login-student',
   templateUrl: './login-student.component.html',
@@ -7,21 +7,41 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class LoginStudentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fb:FormBuilder) { }
   studentForm: FormGroup;
 
   ngOnInit() {
-    this.studentForm= new FormGroup({
-      fullName : new FormControl(),
-      email : new FormControl()
+    this.studentForm = this.fb.group({
+      fullName: ['', Validators.required],
+      email: [''],
+      gender: [''],
+      hobbies: [''],
+      Phone_No: [''],
+      father_name: [''],
+      mother_name: [''],
+      address: this.fb.group({
+        city: [''],
+        state: ['']
+       
+      }),
+    //   gender: new FormGroup({
+    //     male: new FormControl(),
+    //     female: new FormControl()
 
-    });
+    // })
+  });
   }
 
   /**
    * formgroup: 
    */
-onSubmit(): void{
-  console.log(this.studentForm.value);
-}
+  onSubmit(): void {
+    console.log(this.studentForm.valid)
+    if(!this.studentForm.valid){
+      return;
+    }
+    console.log(this.studentForm.value);
+
+
+  }
 }
