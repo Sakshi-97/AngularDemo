@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>User Data</h2>
+    <form #UserForm="ngForm" (ngSubmit)="onSubmit(UserForm.value)">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" name="name" ngModel>
+      </div>
+      <div class="form-group">
+          <label>Gender</label>
+          <input type="text" class="form-control" name="Gender" ngModel>
+        </div>
+        <div class="form-group">
+            <label>Age</label>
+            <input type="text" class="form-control" name="Age" ngModel>
+          </div>
+          <div class="form-group">
+              <label>DOB</label>
+              <input type="text" class="form-control" name="DOB" ngModel>
+            </div>
+            <div class="form-group">
+                <label>Class</label>
+                <input type="text" class="form-control" name="Class" ngModel>
+              </div>
+              <div class="form-group">
+                  <label>City</label>
+                  <input type="text" class="form-control" name="City" ngModel>
+                </div>
+          <button type="submit" class="btn btn-primary">SUBMIT</button>
+    </form>
+    <a [routerLink]="['/Login']" >
+      link to login component
+    </a>
+  </div>
+  
