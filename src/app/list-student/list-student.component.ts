@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListStudentComponent implements OnInit {
 
+  tableData = [];
   constructor() { }
 
   ngOnInit() {
+    this.tableData.push(JSON.parse(localStorage.getItem("username")));
+    console.log(this.tableData)
   }
 
 }

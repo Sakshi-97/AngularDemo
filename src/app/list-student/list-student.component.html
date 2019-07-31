@@ -1,3 +1,18 @@
-<p>
-  list-student works!
-</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">email</th>
+      <th scope="col">City</th>
+      <th scope="col">state</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of tableData">
+      <th scope="row">1</th>
+      <td>{{item.fullName}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.city}}</td>
+      <td>{{item.state}}</td>
+    </tr>
