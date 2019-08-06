@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-md-6">
       <form class="form-horizontal" [formGroup]="studentForm" (ngSubmit)="onSubmit()">
@@ -19,11 +19,11 @@
                 <small *ngIf="fullName.errors?.Required" class="text-danger"> Full Name Is Required!</small>
                 <small *ngIf="fullName.errors?.minLength" class="text-danger"> Full Name Must be atleast  charcters!</small>
               </div> -->
-              </div>
+              <!-- </div>
 
-            </div>
+            </div> -->
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label class="col-sm-2 control-label" for="email">Email</label>
               <div class="col-sm-8">
                 <input id="email" type="text" class="form-control" formControlName="email">
@@ -80,7 +80,7 @@
             <h3 class="panel-title">other details</h3>
           </div>
           <div class="panel-body">
-            <div class="form-group" [ngClass]="{'has-error' : studentForm.get('Phone_No').errors}">
+            <div class="form-group" >
               <label class="col-sm-2 control-label" for="Phone_No.">Phone_No</label>
               <div class="col-sm-8">
                 <input id="Phone_No" type="text" class="form-control" formControlName="Phone_No" min="10" max="10">
@@ -123,7 +123,7 @@
               <input formControlName="description" placeholder="Item description">
               <input formControlName="price" placeholder="Item price">
             </div>
-            <button class="btn btn-primary" type="button"  (click)="addItem()">Save</button>
+            <button class="btn btn-primary" type="button" (click)="addItem()">Save</button>
           </div>
         </div>
         <button class="btn btn-primary" type="submit">Save</button>
@@ -131,4 +131,33 @@
     </div>
 
   </div>
+</div> --> -->
+<div class="col-md-6">
+  <form class="form-horizontal" [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Login details</h3>
+      </div>
+      <div class="panel-body">
+        <div class="form-group" >
+          <label class="col-sm-2 control-label" for="email">email</label>
+          <div class="col-sm-8">
+            <input id="email" type="text" class="form-control" formControlName="email" >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="password">password</label>
+          <div class="col-sm-8">
+            <input id="password" type="text" class="form-control" formControlName="password">
+          </div>
+        </div>
+
+
+      </div>
+      <div class="panel-footer">
+        <button class="btn btn-primary" type="submit">Login</button>
+      </div>
+    </div>
+  </form>
 </div>

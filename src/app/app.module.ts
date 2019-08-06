@@ -7,19 +7,23 @@ import { AppComponent } from './app.component';
 import { CreateStudentComponent } from './create-student/create-student.component';
 import { ListStudentComponent } from './list-student/list-student.component';
 import { LoginStudentComponent } from './login-student/login-student.component';
+import{ HttpClientModule } from  '@angular/common/http';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateStudentComponent,
     ListStudentComponent,
-    LoginStudentComponent
+    LoginStudentComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
