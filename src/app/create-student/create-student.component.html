@@ -1,11 +1,54 @@
 <div class="container">
-  <h2>User Data</h2>
-  <form #UserForm="ngForm" (ngSubmit)="onSubmit(UserForm.value)">
-    <div class="form-group">
-      <label>UserName</label>
-      <input type="text" class="form-control" name="userName" ngModel>
+  <div class="container register">
+    <div class="row">
+      <div class="col-md-3 register-left">
+        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+        <h3>Welcome</h3>
+        <p>You are one step away from Login!</p>
+        <input type="submit" name="" value="Login" />
+        <a [routerLink]="['/Login']">
+          link to login component
+        </a>
+        <br/>
+      </div>
+
+      <form #UserForm="ngForm" (ngSubmit)="onSubmit(UserForm.value)">
+        <div class="form-group">
+          <div class="col-md-9 register-right">
+            <br>
+            <div class="note">
+              <p>User Registration Form</p>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col-md-4">
+                <label>UserName</label>
+                <input type="text" class="form-control" name="userName" ngModel>
+              </div>
+
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="text" class="form-control" name="email" ngModel>
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="text" class="form-control" name="password" ngModel>
+                </div>
+              </div>
+            </div>
+
+
+            <button type="submit" class="btn  btn-primary">SUBMIT</button>
+          </div>
+
+        </div>
+      </form>
     </div>
-    <!-- <div class="form-group">
+  </div>
+
+  <!-- <div class="form-group">
       <label>Gender</label>
       <div class="radio">
         <label>
@@ -47,17 +90,3 @@
         <input type="text" name="city" ngModel>
       </div>
     </div> -->
-    <div class="form-group">
-      <label>Email</label>
-      <input type="text" class="form-control" name="email" ngModel>
-    </div>
-    <div class="form-group">
-      <label>Password</label>
-      <input type="text" class="form-control" name="password" ngModel>
-    </div>
-    <button type="submit" class="btn btn-primary" >SUBMIT</button>
-  </form>
-  <a [routerLink]="['/Login']">
-    link to login component
-  </a>
-</div>

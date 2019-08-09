@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
 export class ListStudentComponent implements OnInit {
   private studentUrl: string = 'http://10.10.30.75:3000/users/registration';
   author = [];
+  author1 = [];
   constructor(private http: HttpClient, private router: Router) { }
+  userDetail: any;
 
   ngOnInit() {
     this.http.get("http://localhost:3000/author").subscribe((res: any) => {
@@ -20,22 +22,36 @@ export class ListStudentComponent implements OnInit {
     });
     // this.author.push(JSON.parse(localStorage.getItem("username")));
     //  console.log(this.author);
-  
+
   }
   edit(userId) {
     this.router.navigate(['/edit', { userId: userId }]);
   }
+
+  detail(user) {
+    this.userDetail = user;
+    console.log(this.userDetail)
+  }
+
   remove(userId) {
-    console.log("delete", userId); 
-    for(let index of this.author) {
-      if(index.id==userId) {
-        this.author.pop();
-      }
-    }
-    console.log("author",this.author);
-    // this.author.spli(usesrId,1);
-    console.log("after delete", userId); 
-    //  this.http.delete("http://localhost:3000/author/" + userId);
+    console.log("delete", userId);
+    this.http.delete("http://localhost:3000/author/" + userId).subscribe((res: any) => {
+      console.log(res);
+
+    });
+
+    let index = this.author.findIndex((e) => {
+      console.log(e, e.id, userId, e.id === userId)
+      return e.id === userId;
+    });
+    console.log(index)
+    this.author.splice(index, 1);
+    console.log(this.author)
+  }
+
+  getWelcomeMessage(event) {
+    console.log(event)
   }
 
 }
+

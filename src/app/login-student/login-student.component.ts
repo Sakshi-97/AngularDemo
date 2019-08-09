@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from '../services/authentication.service';
@@ -9,9 +9,13 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
   templateUrl: './login-student.component.html',
   styleUrls: ['./login-student.component.css']
 })
-export class LoginStudentComponent implements OnInit {
+export class LoginStudentComponent implements AfterViewInit {
+  @ViewChild('nameRef') nameElementRef: ElementRef;
   private studentUrl: string = 'http://10.10.30.75:3000/users/login';
-
+  ngAfterViewInit() {
+    this.nameElementRef.nativeElement.focus();
+    console.log(this.nameElementRef);
+  }
   constructor(private fb: FormBuilder,
     private http: HttpClient,
     private authService: AuthenticationService,
@@ -108,6 +112,6 @@ export class LoginStudentComponent implements OnInit {
   //   console.log(this.orderForm.value);
   // }
 
-  
+
 }
 

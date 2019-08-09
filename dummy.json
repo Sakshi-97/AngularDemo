@@ -7,15 +7,14 @@
       "id": 1
     },
     {
-      "email": "sak@yopmail.com",
-      "password": "123678",
-      "userName": "Sakshi",
+      "email": "sakshi@yopmail.com",
+      "password": "123",
+      "userName": "sakshi",
       "id": 2
-    },
-    {
-      "email": "abc@yopmail.com",
-      "password": "1278",
-      "userName": "Akanksha",
+    }, {
+      "email": "akansha@yopmail.com",
+      "password": "12348",
+      "userName": "akansha",
       "id": 3
     }
   ],

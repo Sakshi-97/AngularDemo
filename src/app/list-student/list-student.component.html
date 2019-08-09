@@ -1,28 +1,45 @@
-<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ'
+  crossorigin='anonymous'>
 <table class="table  table-bordered table-dark">
   <thead>
     <tr>
-      <th scope="col-sm-8"><u>Id</u></th>
-      <th scope="col"><u>UserName</u></th>
-      <th scope="col"><u>Email</u></th>
-      <th scope="col"><u>Password</u></th>
+      <th scope="col-sm-8">
+        <u>Id</u>
+      </th>
+      <th scope="col">
+        <u>UserName</u>
+      </th>
+      <th scope="col">
+        <u>Email</u>
+      </th>
+      <th scope="col">
+        <u>Password</u>
+      </th>
       <!-- <th scope="col">state</th> -->
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let item of author">
-      
+
       <td>{{item.id}}</td>
       <td>{{item.userName}}</td>
       <td>{{item.email}}</td>
       <td>{{item.password}}</td>
       <!-- <td>{{item.state}}</td> -->
-      <button style='font-size:20px'  (click)="edit(item.id)" > <i class='far fa-edit'></i></button>
-      <button  (click)="remove(item.id)" class="btn btn-danger btn-sm">Delete</button>
+      <button style='font-size:20px' (click)="edit(item.id)">
+        <i class='far fa-edit'></i>
+      </button>
+      <button (click)="remove(item.id)" class="btn btn-danger btn-sm">Delete</button>
+      <!-- <button (click)="detail(item)" class="btn btn-danger btn-sm">Detail</button> -->
+      <!-- <button type="button" (click)="detail(item)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Detail
+      </button> -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Detail
+      </button>
     </tr>
-    
-<!-- <script>
-  function edit() {
-    this.router.navigate(['/edit']);
-  }
-  </script> -->
+  </tbody>
+  <app-child [user]="userDetail" (sendClick)="getWelcomeMessage($event)"></app-child>
+  
+  
+ 
