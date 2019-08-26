@@ -1,20 +1,21 @@
 <div class="container">
   <div class="container register">
     <div class="row">
-      <div class="col-md-3 register-left">
+      <div class="col-md-2 register-left">
         <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
         <h3>Welcome</h3>
         <p>You are one step away from Login!</p>
-        <input type="submit" name="" value="Login" />
+        <!-- <input type="submit" name="" value="Login" />
         <a [routerLink]="['/Login']">
           link to login component
-        </a>
+        </a> -->
+        <button type="submit" routerLink="/Login" class="btn  btn-primary">LogIn</button>
         <br/>
       </div>
 
       <form #UserForm="ngForm" (ngSubmit)="onSubmit(UserForm.value)">
         <div class="form-group">
-          <div class="col-md-9 register-right">
+          <div class="col-md-10 register-right">
             <br>
             <div class="note">
               <p>User Registration Form</p>
@@ -27,6 +28,7 @@
                 <input type="text" class="form-control" name="userName" ngModel>
               </div>
 
+
               <div class="col-md-5">
                 <div class="form-group">
                   <label>Email</label>
@@ -36,6 +38,11 @@
                   <label>Password</label>
                   <input type="text" class="form-control" name="password" ngModel>
                 </div>
+
+              <div class="form-group">
+                <label>PhoneNumber</label>
+                <input type="text" OnlyNumeric required [(ngModel)]="model"class="form-control" name="PhoneNumber" ngModel>
+              </div>
               </div>
             </div>
 

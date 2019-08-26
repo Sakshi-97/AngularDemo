@@ -49,6 +49,14 @@ export class ListStudentComponent implements OnInit {
     console.log(this.author)
   }
 
+
+  goToSearch(searchText: any) {
+    var author = this.author.filter((e) => e.email.toLowerCase().match(searchText.toLowerCase())  || e.userName.toLowerCase().match(searchText.toLowerCase()));
+    // return search;
+    // console.log(search);
+    console.log(this.author)
+    this.author = author;
+  }
   getWelcomeMessage(event) {
     console.log(event)
   }

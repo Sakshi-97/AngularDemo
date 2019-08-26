@@ -10,6 +10,11 @@ import { LoginStudentComponent } from './login-student/login-student.component';
 import{ HttpClientModule } from  '@angular/common/http';
 import { EditComponent } from './edit/edit.component';
 import { ChildComponent } from './child/child.component';
+import { FilterPipe } from './filter.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { HeaderComponent } from './header/header.component';
+import { OnlyNumericDirective } from './only-numeric.directive';
+import { StructuralDirective } from './structural.directive';
 
 @NgModule({
   declarations: [
@@ -18,14 +23,19 @@ import { ChildComponent } from './child/child.component';
     ListStudentComponent,
     LoginStudentComponent,
     EditComponent,
-    ChildComponent
+    ChildComponent,
+    FilterPipe,
+    HeaderComponent,
+    OnlyNumericDirective,
+    StructuralDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

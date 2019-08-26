@@ -1,3 +1,14 @@
+
+<div class="row"><form class="form-inline md-form form-sm col-md-4">
+  <input #search class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+    aria-label="Search">
+    <button class="btn btn-default" type="button" (click)="goToSearch(search.value)">Search<i class="fas fa-search" aria-hidden="true"></i></button>
+  
+</form>
+<div class="active-purple-3 active-purple-4 mb-4 col-md-4">
+    <input [(ngModel)]="searchText" placeholder="search text goes here">
+</div>
+</div>
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ'
   crossorigin='anonymous'>
 <table class="table  table-bordered table-dark">
@@ -19,10 +30,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of author">
+    <tr *ngFor="let item of author | customFilter:searchText">
 
       <td>{{item.id}}</td>
-      <td>{{item.userName}}</td>
+      <td>{{item.userName | uppercase}}</td>
       <td>{{item.email}}</td>
       <td>{{item.password}}</td>
       <!-- <td>{{item.state}}</td> -->
@@ -37,6 +48,7 @@
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         Detail
       </button>
+      
     </tr>
   </tbody>
   <app-child [user]="userDetail" (sendClick)="getWelcomeMessage($event)"></app-child>

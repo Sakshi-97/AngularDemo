@@ -11,9 +11,9 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 })
 export class LoginStudentComponent implements AfterViewInit {
   @ViewChild('nameRef') nameElementRef: ElementRef;
-  private studentUrl: string = 'http://10.10.30.75:3000/users/login';
+  private studentUrl: string = 'http://18.228.42.122/api/login';
   ngAfterViewInit() {
-    this.nameElementRef.nativeElement.focus();
+    // this.nameElementRef.nativeElement.focus();
     console.log(this.nameElementRef);
   }
   constructor(private fb: FormBuilder,
@@ -24,8 +24,6 @@ export class LoginStudentComponent implements AfterViewInit {
   studentForm: FormGroup;
   // orderForm: FormGroup;
   // items: FormArray;
-
-
 
   ngOnInit() {
     this.studentForm = this.fb.group({
@@ -87,13 +85,19 @@ export class LoginStudentComponent implements AfterViewInit {
 
 
   onSubmit(value: any) {
+    console.log("in onsubmit");
     console.log(this.studentForm.value)
     let { email, password } = this.studentForm.value;
-    this.authService.login(email, password).subscribe(() => { });
+    this.authService.login(email, password).subscribe((res) => {
+      this.router.navigate(['List']);
+      console.log("login response", res)
+
+    });
     // this.http.post<any>(this.studentUrl, this.studentForm.value).subscribe((res)=>{
     //   console.log(res)
     // });
-    this.router.navigate(['/List']);
+
+
   }
   // createItem(): FormGroup {
   //   return this.fb.group({
