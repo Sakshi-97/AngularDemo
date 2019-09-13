@@ -15,6 +15,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HeaderComponent } from './header/header.component';
 import { OnlyNumericDirective } from './only-numeric.directive';
 import { StructuralDirective } from './structural.directive';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import  { BasicAuthInterceptor } from './basic-auth.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +40,11 @@ import { StructuralDirective } from './structural.directive';
     HttpClientModule,
     Ng2SearchPipeModule
   ],
-  providers: [],
+  providers: [ {
+    provide: HTTP_INTERCEPTORS,
+    useClass: BasicAuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,10 +8,11 @@
     },
     {
       "email": "sakshi@yopmail.com",
-      "password": "123",
+      "password": "1234",
       "userName": "arora",
       "id": 2
-    }, {
+    },
+    {
       "email": "akansha@yopmail.com",
       "password": "12348",
       "userName": "akansha",
@@ -21,7 +22,13 @@
       "email": "saksham@yopmail.com",
       "password": "12348",
       "userName": "saksham",
-      "id": 3
+      "id": 4
+    },
+    {
+      "email": "varsha@yopmail.com",
+      "password": "12456",
+      "userName": "varsha",
+      "id": 5
     }
   ],
   "comments": [

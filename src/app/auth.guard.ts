@@ -22,4 +22,4 @@ export class AuthGuard implements CanActivate {
         return false;
     }
 }
-//https://jasonwatmore.com/post/2019/06/26/angular-8-basic-http-authentication-tutorial-example
+//https://jasonwatmore.com/post/2019/06/26/angular-8-basic-http-authentication-tutorial-example 

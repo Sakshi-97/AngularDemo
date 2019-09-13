@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject, Observable,throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
@@ -17,7 +17,7 @@ export class AuthenticationService {
         // this.currentUserValue = JSON.parse(localStorage.getItem('currentUser'));
     }
 
-    public get currentUserValue(): any {
+    public get currentUserValue():  Observable<any>{
         return this.currentUserSubject.value;
     }
 
@@ -31,7 +31,7 @@ export class AuthenticationService {
         return this.http.post<any>(`http://18.228.42.122/api/login`, { email:username, password:password })
             .pipe(map(user => {
                 console.log(user);
-                let userData = user.data;
+                let userData = user.user;
 
                 
                 // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
@@ -39,7 +39,7 @@ export class AuthenticationService {
                 localStorage.setItem('currentUser', JSON.stringify(user));
                 this.currentUserSubject.next(userData);
                 return userData;
-            }));
+            }));    
     }
 
     logout() {
